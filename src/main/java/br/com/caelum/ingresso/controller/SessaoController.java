@@ -45,16 +45,20 @@ public class SessaoController {
 	@PostMapping("/admin/sessao")
 	@Transactional
 	public ModelAndView salva(@Valid SessaoForm form, BindingResult result) {
+		
 		if (result.hasErrors())
 			return form(form.getSalaId(), form);
+		
 		Sessao sessao = form.toSessao(salaDao, filmeDao);
+		
 		List<Sessao> sessoesDaSala = sessaoDao.buscaSessoesDaSala(sessao.getSala());
 		GerenciadorDeSessao gerenciador = new GerenciadorDeSessao(sessoesDaSala);
+		
 		if (gerenciador.cabe(sessao)) {
 			sessaoDao.save(sessao);
 			return new ModelAndView("redirect:/admin/sala/" + form.getSalaId() + "/sessoes");
 		}
-		
+
 		return form(form.getSalaId(), form);
 	}
 }
