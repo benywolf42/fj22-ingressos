@@ -6,17 +6,26 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib tagdir="/WEB-INF/tags/" prefix="ingresso" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib tagdir="/WEB-INF/tags/" prefix="ingresso"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 
 <ingresso:template>
-    <jsp:body>
+	<jsp:body>
+    	<style>
+			.center {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width: 50%;
+			}
+		</style>
 		<div class=" col-md-6 col-md-offset-3">
 	        <h1>${detalhes.titulo}</h1>
-	        <image src="${detalhes.imagem}" />
+				<image class="center" src="${detalhes.imagem}" />
 	
 	        <div>
 	            <label for="ano">Ano</label>
@@ -63,7 +72,8 @@
 								<td>
 									<a href="/sessao/${sessao.id}/lugares" class="btn">
 										Comprar
-										<span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>
+										<span class="glyphicon glyphicon-blackboard"
+									aria-hidden="true"></span>
 									</a>
 								</td>
 							</tr>

@@ -11,6 +11,7 @@
                 <div class="col-md-4 ">
                     <a href="/filme/${filme.id}/detalhe">
                         <div class="panel panel-default panelSize">
+                        	<image src="${detalhes.imagem}" />
                             <div class="panel-heading text-center"><strong>${filme.nome}</strong></div>
                             <div class="panel-body">
                                 <div>
