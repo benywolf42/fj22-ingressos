@@ -33,4 +33,12 @@ public class Carrinho {
 		this.ingressos = ingressos;
 	}
 
+	public Compra toCompra() {
+		return new Compra(ingressos);
+	}
+
+	public void limpa() {
+		this.ingressos.clear();
+	}
+
 }
