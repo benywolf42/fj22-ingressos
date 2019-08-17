@@ -98,4 +98,12 @@ public class Sessao {
 		this.ingressos = ingressos;
 	}
 
+	@Override
+	public String toString() {
+		return "Sessao [id=" + id + ", horario=" + horario + ", sala=" + sala + ", filme=" + filme + ", preco=" + preco
+				+ ", ingressos=" + ingressos + "]";
+	}
+	
+	
+
 }

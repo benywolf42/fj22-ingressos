@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-
 @Entity
 public class Ingresso {
 
@@ -31,10 +30,9 @@ public class Ingresso {
 	private TipoDeIngresso tipoDeIngresso;
 
 	public Ingresso(Sessao sessao, TipoDeIngresso tipoDeIngresso, Lugar lugar) {
-		super();
 		this.sessao = sessao;
+		this.tipoDeIngresso = tipoDeIngresso;
 		this.preco = tipoDeIngresso.aplicaDesconto(sessao.getPreco());
-
 		this.lugar = lugar;
 	}
 
@@ -45,12 +43,12 @@ public class Ingresso {
 	public Ingresso() {
 	}
 
-	public BigDecimal getPreco() {
-		return preco.setScale(2, RoundingMode.HALF_UP);
+	public Integer getId() {
+		return id;
 	}
 
-	public void setPreco(BigDecimal preco) {
-		this.preco = preco;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Sessao getSessao() {
@@ -61,6 +59,14 @@ public class Ingresso {
 		this.sessao = sessao;
 	}
 
+	public BigDecimal getPreco() {
+		return preco.setScale(2, RoundingMode.HALF_UP);
+	}
+
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
+	}
+
 	public Lugar getLugar() {
 		return lugar;
 	}
@@ -68,5 +74,13 @@ public class Ingresso {
 	public void setLugar(Lugar lugar) {
 		this.lugar = lugar;
 	}
-	
+
+	public TipoDeIngresso getTipoDeIngresso() {
+		return tipoDeIngresso;
+	}
+
+	public void setTipoDeIngresso(TipoDeIngresso tipoDeIngresso) {
+		this.tipoDeIngresso = tipoDeIngresso;
+	}
+
 }
